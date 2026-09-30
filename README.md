@@ -8,7 +8,7 @@ S-PA-CBB reconstructs a complete probabilistic stress–life (S–N) curve from 
 
 ## Repository contents
 
-- Root-level Python files — data conversion, model training, calibration, evaluation, ablation, downstream-task, and figure-generation code.
+- Root-level Python files — data conversion, model training, calibration, evaluation, ablation, and downstream-task code.
 - `am2022_curves.json` and `external_data/` — harmonized curve-level JSON plus source metadata.
 - `strict_splits/` — fixed AM2022 source/alloy-held-out splits and LODO summary.
 - `final_protocol/` — compact, publication-facing metrics, tables, and selected plots.
@@ -50,7 +50,6 @@ The principal model and evaluation entry points are:
 python control_score_bridge.py --help
 
 # Validation-gated selective correction
-python selective_two_stage_correction.py --help
 python promote_selective_main_model.py --help
 
 # External-domain and baseline evaluation
@@ -64,16 +63,9 @@ python downstream_active_selection.py --help
 
 All stochastic experiments expose explicit seed arguments. The paper uses three reverse Brownian-bridge steps for the core comparison and reports independent sensitivity sweeps over reverse-step and ensemble counts.
 
-## Reproduce publication assets
+## Publication assets
 
-Publication plots and tables are generated from saved result JSON/CSV files:
-
-```bash
-python plot_final_protocol.py --help
-python plot_mechanism_case_studies.py --help
-python plot_active_selection_case_studies.py --help
-python make_publication_figures.py --help
-```
+The repository contains the publication figures and tables used by the manuscript. Plot-generation scripts are intentionally excluded from the public release; the underlying numerical JSON/CSV results remain available under `final_protocol/`.
 
 Compile the manuscript from `manuscript/` with a standard TeX Live installation:
 

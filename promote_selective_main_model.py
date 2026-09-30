@@ -20,8 +20,6 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 import numpy as np
 import torch
 
@@ -43,18 +41,6 @@ from control_bridge import make_case  # noqa: E402
 from control_score_bridge import split_curves  # noqa: E402
 from downstream_fatigue_strength import invert_log_stress, monotone_decreasing  # noqa: E402
 from extended_metrics import curve_energy, empirical_crps, interval_score, summarize_point  # noqa: E402
-
-
-NAVY, BLUE, LIGHT_BLUE = "#315F98", "#84A9D4", "#DDE8F4"
-ROSE, GOLD, GREY, INK = "#C96F72", "#E9AE3A", "#7B858E", "#27323A"
-
-
-def style():
-    mpl.rcParams.update({"font.family": "DejaVu Sans", "font.size": 7.5,
-                         "axes.titlesize": 8.5, "axes.labelsize": 8,
-                         "xtick.labelsize": 6.8, "ytick.labelsize": 6.8,
-                         "legend.fontsize": 6.6, "axes.linewidth": .8,
-                         "pdf.fonttype": 42, "ps.fonttype": 42})
 
 
 def strength(gx, curve, target=6.0):
@@ -279,94 +265,6 @@ def write_source_table(summary, output):
     output.write_text("\n".join(lines)+"\n")
 
 
-def plot_overview(test_rows, gates, summary, stem):
-    style(); fig, axes = plt.subplots(2,2,figsize=(7.25,5.35))
-    ax=axes[0,0]
-    for known,color in zip((2,3,4),(BLUE,NAVY,ROSE)):
-        rows=[r for r in test_rows if r["known"]==known]
-        base,_=error_arrays(rows,0); corrected,_=error_arrays(rows,gates[str(known)]["alpha"])
-        value=scores(rows)[gates[str(known)]["score"]]
-        ax.scatter(value,base-corrected,s=12,alpha=.45,color=color,label=f"k={known}")
-        ax.axvline(gates[str(known)]["threshold"],color=color,ls="--",lw=.8)
-    ax.axhline(0,color=INK,lw=.8); ax.set_xlabel("Validation-selected gate score"); ax.set_ylabel("Potential MAE reduction")
-    ax.set_title("(a) Prospective gate on held-out cases",loc="left",weight="bold"); ax.legend(frameon=False)
-    ax=axes[0,1]; x=np.arange(3); width=.24
-    methods=[("Basquin","basquin_grid_mae_logN",GREY),("Raw PA-CBB","raw_pacbb_grid_mae_logN",ROSE),("S-PA-CBB","grid_mae_logN",NAVY)]
-    for j,(label,key,color) in enumerate(methods): ax.bar(x+(j-1)*width,[summary[str(k)][key] for k in (2,3,4)],width,color=color,label=label)
-    ax.set_xticks(x,["2 tests","3 tests","4 tests"]); ax.set_ylabel("Grid MAE (log cycles)"); ax.set_title("(b) Selective mean correction",loc="left",weight="bold"); ax.legend(frameon=False,ncol=3,fontsize=6)
-    ax=axes[1,0]
-    activation=[summary[str(k)]["activation_rate"] for k in (2,3,4)]
-    ax.bar(x,activation,color=[BLUE,NAVY,ROSE]); ax.set_xticks(x,["2 tests","3 tests","4 tests"]); ax.set_ylim(0,1)
-    ax.set_ylabel("Activation rate"); ax.set_title("(c) Fraction receiving generated correction",loc="left",weight="bold")
-    ax=axes[1,1]
-    for key,label,color in (("raw_coverage90","Raw 90% coverage",ROSE),("conformal_coverage90","Conformal coverage",NAVY)):
-        ax.plot(x,[summary[str(k)][key] for k in (2,3,4)],marker="o",color=color,label=label)
-    ax.axhline(.9,color=INK,ls="--",lw=.8); ax.set_xticks(x,["2 tests","3 tests","4 tests"]); ax.set_ylim(0,1)
-    ax.set_ylabel("Empirical coverage"); ax.set_title("(d) Distribution retained after gating",loc="left",weight="bold"); ax.legend(frameon=False)
-    for ax in axes.ravel(): ax.grid(axis="y",ls="--",lw=.4,alpha=.3); ax.tick_params(direction="in")
-    fig.tight_layout(h_pad=1.2,w_pad=1.1)
-    for suffix in ("pdf","png","svg"): fig.savefig(stem.with_suffix("."+suffix),dpi=400,bbox_inches="tight")
-    plt.close(fig)
-
-
-def plot_gallery(test_rows, stem):
-    # Deterministic success-case gallery.  Each row is one sparse budget and
-    # contains three accurately corrected curves plus one accurately retained
-    # physical curve.  Domain slots prevent the large Weld2025 population from
-    # visually dominating the smaller AM2022 and CMA2022 collections.
-    def row_stats(r):
-        old=float(np.mean(np.abs(r["physics"]-r["truth"])))
-        new=float(np.mean(np.abs(r["selected_mean"]-r["truth"])))
-        return old,new,old-new
-
-    slots={
-        2: (("AM2022",True),("Weld2025",True),("CMA2022",True),("AM2022",False)),
-        3: (("Weld2025",True),("AM2022",True),("CMA2022",True),("CMA2022",False)),
-        4: (("AM2022",True),("CMA2022",True),("Weld2025",True),("AM2022",False)),
-    }
-    chosen=[]; used=set()
-    for known in (2,3,4):
-        for domain,want_active in slots[known]:
-            pool=[]
-            for r in test_rows:
-                if r["known"] != known or r["active"] != want_active:
-                    continue
-                if database_from_id(r["curve"]["id"]) != domain or r["curve"]["id"] in used:
-                    continue
-                old,new,gain=row_stats(r)
-                if new > (.15 if want_active else .12):
-                    continue
-                if want_active and gain < .02:
-                    continue
-                pool.append((new,-gain,r["curve"]["id"],r))
-            if not pool:
-                raise RuntimeError(f"No gallery case for k={known}, domain={domain}, active={want_active}")
-            selected=min(pool,key=lambda q:(q[0],q[1],q[2]))[-1]
-            chosen.append(selected); used.add(selected["curve"]["id"])
-    style(); fig,axes=plt.subplots(3,4,figsize=(7.35,5.65))
-    for i,(ax,r) in enumerate(zip(axes.ravel(),chosen)):
-        stress=10**np.asarray(r["gx"]); truth=r["truth"]; raw=r["raw_draws"]; sel=r["draws"]
-        lo,hi=np.quantile(sel,[.05,.95],axis=0)
-        ax.fill_between(stress,lo,hi,color=LIGHT_BLUE,alpha=.6,lw=0)
-        for draw in sel[:8]: ax.plot(stress,draw,color=BLUE,alpha=.12,lw=.45)
-        ax.plot(stress,truth,color=INK,lw=1.3,label="Truth")
-        ax.plot(stress,r["physics"],color=GREY,lw=1.0,ls="--",label="Basquin")
-        ax.plot(stress,raw.mean(0),color=ROSE,lw=1.0,ls=":",label="Raw PA-CBB")
-        ax.plot(stress,r["selected_mean"],color=NAVY,lw=1.35,label="S-PA-CBB")
-        obs=np.asarray(r["observed"],int); curve=r["curve"]
-        ax.scatter(10**curve["x"][obs],curve["y"][obs],s=15,color=GOLD,edgecolor=INK,lw=.35,zorder=5)
-        old,new,gain=row_stats(r); domain=database_from_id(r["curve"]["id"])
-        action="corrected" if r["active"] else "physics retained"
-        ax.set_title(f"({chr(97+i)}) {domain} | k={r['known']} | {action}\nGrid MAE: {old:.3f} -> {new:.3f}",fontsize=7.0,loc="left")
-        ax.grid(ls="--",lw=.35,alpha=.25); ax.tick_params(direction="in")
-        if i%4==0: ax.set_ylabel(r"$\log_{10}N$")
-        if i>=8: ax.set_xlabel("Stress (MPa)")
-    handles,labels=axes.flat[0].get_legend_handles_labels(); fig.legend(handles,labels,loc="lower center",ncol=4,frameon=False)
-    fig.subplots_adjust(left=.075,right=.99,top=.97,bottom=.10,wspace=.22,hspace=.32)
-    for suffix in ("pdf","png","svg"): fig.savefig(stem.with_suffix("."+suffix),dpi=400,bbox_inches="tight")
-    plt.close(fig)
-
-
 def main(args):
     checkpoint=torch.load(args.checkpoint,map_location="cpu",weights_only=False)
     split_seed=checkpoint.get("split_seed",checkpoint.get("seed",20260928))
@@ -404,11 +302,7 @@ def main(args):
     write_bank(validation+test,metadata,args.output_dir/"bank")
     if args.source_table:
         write_source_table(domain_summary["AM2022"],args.output_dir/"table_expanded_reconstruction.tex")
-    plot_overview(test,gates,summary,args.output_dir/"selective_main_overview")
-    plot_gallery(test,args.output_dir/"selective_curve_gallery")
-    args.paper_figures.mkdir(parents=True,exist_ok=True); args.paper_tables.mkdir(parents=True,exist_ok=True)
-    for name in ("selective_main_overview.pdf","selective_curve_gallery.pdf"):
-        shutil.copy2(args.output_dir/name,args.paper_figures/name)
+    args.paper_tables.mkdir(parents=True,exist_ok=True)
     if args.source_table:
         shutil.copy2(args.output_dir/"table_expanded_reconstruction.tex",args.paper_tables/"table_expanded_reconstruction.tex")
     print(json.dumps(result,indent=2))
@@ -419,7 +313,6 @@ if __name__=="__main__":
     p.add_argument("--checkpoint",type=Path,default=Path("ablation_campaign/full_seed20261020/model/model.pt"))
     p.add_argument("--bank-dir",type=Path,default=Path("final_protocol/downstream_task_screen"))
     p.add_argument("--output-dir",type=Path,default=Path("final_protocol/selective_main"))
-    p.add_argument("--paper-figures",type=Path,default=Path("paper_elsevier_draft/figs"))
     p.add_argument("--paper-tables",type=Path,default=Path("paper_elsevier_draft/tables"))
     p.add_argument("--source-table",action="store_true")
     main(p.parse_args())
