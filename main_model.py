@@ -14,6 +14,7 @@ import hashlib
 import json
 import math
 import pickle
+import random
 import shutil
 import types
 import sys
@@ -37,10 +38,149 @@ def install_npu_checkpoint_compatibility():
 
 install_npu_checkpoint_compatibility()
 
-from control_bridge import make_case  # noqa: E402
-from control_score_bridge import split_curves  # noqa: E402
-from downstream_fatigue_strength import invert_log_stress, monotone_decreasing  # noqa: E402
-from extended_metrics import curve_energy, empirical_crps, interval_score, summarize_point  # noqa: E402
+
+GRID = 32
+HASH_DIM = 16
+
+
+def hvec(value: str, dim=HASH_DIM):
+    out = np.zeros(dim, np.float32)
+    value = value or "<missing>"
+    for token in str(value).lower().replace("-", " ").split():
+        digest = hashlib.sha1(token.encode()).digest()
+        out[int.from_bytes(digest[:2], "little") % dim] += 1.0 if digest[2] & 1 else -1.0
+    return out
+
+
+def fit_line(x, y, prior, ridge=0.01):
+    xm, ym = x.mean(), y.mean()
+    slope = (((x - xm) * (y - ym)).sum() + ridge * prior) / (((x - xm) ** 2).sum() + ridge + 1e-8)
+    slope = float(np.clip(slope, -25, -0.05))
+    return float(ym - slope * xm), slope
+
+
+def load_curves(path: Path, seed: int):
+    payload = json.loads(path.read_text())
+    curves = []
+    for record in payload["curves"]:
+        points = np.asarray([[p[0], p[1]] for p in record["points"] if not p[2] and p[0] > 0 and p[1] > 0], np.float64)
+        if len(points) < 6 or len(np.unique(points[:, 0])) < 4:
+            continue
+        x, y = np.log10(points[:, 0]), np.log10(points[:, 1])
+        if np.ptp(x) < .04:
+            continue
+        slope = np.cov(x, y, bias=True)[0, 1] / (np.var(x) + 1e-10)
+        if not (-25 < slope < -.05):
+            continue
+        unique_x = np.unique(x)
+        unique_y = np.asarray([np.median(y[x == value]) for value in unique_x])
+        grid_x = np.linspace(unique_x.min(), unique_x.max(), GRID)
+        conditions = record.get("conditions") or {}
+        curves.append({
+            "id": record["id"], "name": record.get("name", ""),
+            "x": x.astype(np.float32), "y": y.astype(np.float32),
+            "gx": grid_x.astype(np.float32),
+            "gy": np.interp(grid_x, unique_x, unique_y).astype(np.float32),
+            "family": record.get("material_family", "Unknown"),
+            "am": str(conditions.get("am_type", "")),
+            "R": str(conditions.get("load_ratio", "")),
+            "test": str(conditions.get("test_type", "")),
+        })
+    random.Random(seed).shuffle(curves)
+    count = len(curves)
+    return curves[:int(.6 * count)], curves[int(.6 * count):int(.8 * count)], curves[int(.8 * count):]
+
+
+def split_curves(data, seed, split_ids=None):
+    train, validation, test = load_curves(data, seed)
+    all_curves = train + validation + test
+    if split_ids is None:
+        return train, validation, test, None
+    by_id = {curve["id"]: curve for curve in all_curves}
+    parts = [[by_id[item] for item in split_ids[key] if item in by_id] for key in ("train", "val", "test")]
+    return parts[0], parts[1], parts[2], split_ids
+
+
+def make_case(curve, observed, prior, ymean, ystd):
+    x, y, grid_x, grid_y = curve["x"], curve["y"], curve["gx"], curve["gy"]
+    intercept, slope = fit_line(x[observed], y[observed], prior)
+    physics = intercept + slope * grid_x
+    mask = np.zeros(GRID, np.float32)
+    observed_y = np.zeros(GRID, np.float32)
+    for index in observed:
+        grid_index = int(np.argmin(np.abs(grid_x - x[index])))
+        mask[grid_index] = 1.0
+        observed_y[grid_index] = (y[index] - ymean) / ystd
+    try:
+        load_ratio = float(curve["R"])
+    except Exception:
+        load_ratio = 0.0
+    raw = np.concatenate([
+        hvec(curve["family"]), hvec(curve["am"]), hvec(curve["R"]), hvec(curve["test"]),
+        np.asarray([prior / 10, slope / 10, grid_x.mean() / 3, np.ptp(grid_x), len(observed) / 4, load_ratio], np.float32),
+    ])
+    stress = np.linspace(-1, 1, GRID, dtype=np.float32)
+    physics_norm = (physics - ymean) / ystd
+    return {
+        "static": np.stack([observed_y, mask, stress]),
+        "control": np.stack([physics_norm, observed_y, mask, stress]),
+        "target": ((grid_y - ymean) / ystd).astype(np.float32),
+        "phys": physics_norm.astype(np.float32), "raw": raw.astype(np.float32),
+        "mask": mask, "oy": observed_y, "gx": grid_x, "x": x, "y": y,
+        "obs": np.asarray(observed),
+    }
+
+
+def monotone_decreasing(values):
+    return np.minimum.accumulate(np.asarray(values, dtype=np.float64))
+
+
+def invert_log_stress(gx, gy, target):
+    life = monotone_decreasing(gy)[::-1]
+    stress_grid = np.asarray(gx, dtype=np.float64)[::-1]
+    unique_life, unique_index = np.unique(life, return_index=True)
+    unique_stress = stress_grid[unique_index]
+    if len(unique_life) == 1:
+        return float(unique_stress[0])
+    return float(np.interp(target, unique_life, unique_stress,
+                           left=unique_stress[0], right=unique_stress[-1]))
+
+
+def interval_score(y, lo, hi, alpha):
+    return (hi - lo) + 2 / alpha * (lo - y) * (y < lo) + 2 / alpha * (y - hi) * (y > hi)
+
+
+def empirical_crps(draws, truth):
+    first = np.mean(np.abs(draws - truth[None, :]), axis=0)
+    ordered = np.sort(draws, axis=0)
+    size = len(ordered)
+    weights = 2 * np.arange(1, size + 1) - size - 1
+    return first - np.sum(weights[:, None] * ordered, axis=0) / (size * size)
+
+
+def curve_energy(draws, truth):
+    scale = math.sqrt(draws.shape[1])
+    first = np.linalg.norm(draws - truth[None, :], axis=1).mean() / scale
+    differences = draws[:, None, :] - draws[None, :, :]
+    second = np.linalg.norm(differences, axis=2).mean() / scale
+    return float(first - 0.5 * second)
+
+
+def summarize_point(truth, prediction):
+    error = prediction - truth
+    absolute = np.abs(error)
+    denominator = np.sum((truth - truth.mean()) ** 2)
+    return {
+        "mae_logN": float(absolute.mean()),
+        "rmse_logN": float(np.sqrt(np.mean(error ** 2))),
+        "median_ae_logN": float(np.median(absolute)),
+        "p90_ae_logN": float(np.quantile(absolute, .90)),
+        "mean_bias_logN": float(error.mean()),
+        "r2": float(1 - np.sum(error ** 2) / denominator),
+        "pearson_r": float(np.corrcoef(truth, prediction)[0, 1]),
+        "factor_2_accuracy": float(np.mean(absolute <= math.log10(2))),
+        "factor_3_accuracy": float(np.mean(absolute <= math.log10(3))),
+    }
 
 
 def strength(gx, curve, target=6.0):

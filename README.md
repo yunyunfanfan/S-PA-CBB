@@ -8,7 +8,7 @@ S-PA-CBB reconstructs a complete probabilistic stress–life (S–N) curve from 
 
 ## Repository contents
 
-- Root-level Python files — data conversion, model training, calibration, evaluation, ablation, and downstream-task code.
+- `main_model.py` — the single self-contained reference script for validation-gated selective S-PA-CBB correction and evaluation.
 - `am2022_curves.json` and `external_data/` — harmonized curve-level JSON plus source metadata.
 - `strict_splits/` — fixed AM2022 source/alloy-held-out splits and LODO summary.
 - `final_protocol/` — compact, publication-facing metrics, tables, and selected plots.
@@ -25,47 +25,25 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-PyTorch should be installed with the wheel appropriate for the local accelerator. The training scripts run on CPU, CUDA, or Ascend NPU where the corresponding PyTorch backend is available.
+PyTorch should be installed with the wheel appropriate for the local accelerator. The checkpoint loader includes compatibility handling for models produced on Ascend NPU systems.
 
 ## Data preparation
 
-The repository already contains the harmonized curve records used for the reported experiments. To rebuild them from the official sources, download the source files listed in [`DATA.md`](DATA.md), then run:
-
-```bash
-python convert_am2022.py --help
-python convert_external_datasets.py --help
-python build_multidataset.py --help
-python make_strict_splits.py --help
-python make_lodo_manifests.py --help
-```
-
-Source identifiers are retained in every converted record. The conversion scripts normalize units, reject ineligible records, and create curve-level rather than point-level partitions to prevent leakage.
+The repository contains the harmonized curve records used for the reported experiments. Official source downloads, licenses, eligibility rules and provenance are documented in [`DATA.md`](DATA.md). Source identifiers are retained in every converted record, and all provided partitions are curve-level rather than point-level.
 
 ## Main experimental pipeline
 
-The principal model and evaluation entry points are:
+The public code release intentionally exposes one entry point:
 
 ```bash
-# Conditional Brownian-bridge model
-python control_score_bridge.py --help
-
-# Validation-gated selective correction
-python promote_selective_main_model.py --help
-
-# External-domain and baseline evaluation
-python external_control_eval.py --help
-python external_baseline_benchmark.py --help
-
-# Fatigue-strength inversion and active experiment selection
-python downstream_fatigue_strength.py --help
-python downstream_active_selection.py --help
+python main_model.py --help
 ```
 
-All stochastic experiments expose explicit seed arguments. The paper uses three reverse Brownian-bridge steps for the core comparison and reports independent sensitivity sweeps over reverse-step and ensemble counts.
+`main_model.py` reconstructs the physical state from sparse observations, fits the validation-only selective gate, applies the residual-mean correction while retaining posterior deviations, and writes the aligned metrics and optional LaTeX table. It is self-contained and does not import private project modules.
 
 ## Publication assets
 
-The repository contains the publication figures and tables used by the manuscript. Plot-generation scripts are intentionally excluded from the public release; the underlying numerical JSON/CSV results remain available under `final_protocol/`.
+The repository contains the publication figures and tables used by the manuscript. Plot-generation scripts are intentionally excluded; the underlying numerical JSON/CSV results remain available under `final_protocol/`.
 
 Compile the manuscript from `manuscript/` with a standard TeX Live installation:
 
