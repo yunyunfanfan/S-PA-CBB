@@ -104,15 +104,12 @@ The scientific value of generation lies in the distribution of complete trajecto
 
 Three public resources provide distinct domains for testing this complete-curve view. AM2022 covers additively manufactured metals \cite{Zhang2023FatigueData}; CMA2022 contains metallic glasses and multi-principal-element alloys \cite{Zhang2023CMA}; Weld2025 contributes welded joints with geometry and treatment metadata \cite{Deng2025Welded}. We harmonize stress definitions and curve grouping, audit article- and curve-level duplicates, preserve database identity and evaluate both pooled and target-excluded transfer. This protocol connects the proposed mechanism to three questions: whether the selective correction improves hidden measurements, whether generated trajectories form a useful distribution, and whether that distribution changes an engineering decision.
 
-\begin{center}
-\begin{minipage}{\columnwidth}
+\begin{figure}[pos=t]
 \centering
-\refstepcounter{figure}\label{fig:mechanism}
-\includegraphics[width=0.98\columnwidth]{figs/mechanism_explanation.pdf}
-\smallskip
-\footnotesize\textbf{Figure \thefigure. Conceptual mechanism of two-stage selective transformation.} Sparse tests define a Basquin state and a difficulty assessment. Physics-consistent curves retain that state; flagged difficult curves receive a generated residual transformation and a distribution of complete S--N curves.
-\end{minipage}
-\end{center}
+\includegraphics[width=\columnwidth]{figs/mechanism_explanation.pdf}
+\caption{Conceptual mechanism of two-stage selective transformation. Sparse tests define a Basquin state and a difficulty assessment. Physics-consistent curves retain that state; flagged difficult curves receive a generated residual transformation and a distribution of complete S--N curves.}
+\label{fig:mechanism}
+\end{figure}
 
 The study follows one central question: \emph{when should a sparse physical S--N state be retained, and when does a generated residual add engineering information?} Four contributions answer it:
 
