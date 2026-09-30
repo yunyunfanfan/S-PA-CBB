@@ -1,6 +1,6 @@
 # S-PA-CBB
 
-Official research code, processed curve records, evaluation outputs, and manuscript source for:
+Official research code, processed curve records, and evaluation outputs for:
 
 > **From Physics to Selective Generation: Conditional Brownian Bridges for Sparse S–N Curve Reconstruction and Fatigue Decision-Making**
 
@@ -12,7 +12,6 @@ S-PA-CBB reconstructs a complete probabilistic stress–life (S–N) curve from 
 - `am2022_curves.json` and `external_data/` — harmonized curve-level JSON plus source metadata.
 - `strict_splits/` — fixed AM2022 source/alloy-held-out splits and LODO summary.
 - `final_protocol/` — compact, publication-facing metrics, tables, and selected plots.
-- `paper_elsevier_draft/` — Elsevier CAS LaTeX source, bibliography, tables, figures, and a compiled PDF.
 - [`DATA.md`](DATA.md) — official dataset links, licenses, conversion commands, and provenance notes.
 
 ## Environment
@@ -41,16 +40,9 @@ python main_model.py --help
 
 `main_model.py` reconstructs the physical state from sparse observations, fits the validation-only selective gate, applies the residual-mean correction while retaining posterior deviations, and writes the aligned metrics and optional LaTeX table. It is self-contained and does not import private project modules.
 
-## Publication assets
+## Result assets
 
-The repository contains the publication figures and tables used by the manuscript. Plot-generation scripts are intentionally excluded; the underlying numerical JSON/CSV results remain available under `final_protocol/`.
-
-Compile the manuscript from `manuscript/` with a standard TeX Live installation:
-
-```bash
-cd paper_elsevier_draft
-latexmk -pdf main_v2.tex
-```
+The repository contains compact numerical results and selected result assets under `final_protocol/`. Plot-generation scripts and the paper draft are intentionally excluded from the public release.
 
 ## Reproducibility notes
 
