@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Compact reconstruction benchmark on the AM2022 source-paper holdout. All methods receive identical sparse observations and metadata. Basquin is treated as the physical-state ablation rather than a main non-physics baseline.}
+\label{tab:compact_reconstruction}
+\centering\scriptsize\setlength{\tabcolsep}{5pt}
+\begin{tabular}{llrrrrrrrrr}
+\toprule
+& & \multicolumn{3}{c}{$k=2$} & \multicolumn{3}{c}{$k=3$} & \multicolumn{3}{c}{$k=4$} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
+Method & Type & MAE & MedAE & F2 & MAE & MedAE & F2 & MAE & MedAE & F2 \\
+\midrule
+\textbf{PA-CBB} & Physics-guided generation & \textbf{0.374} & \textbf{0.272} & \textbf{0.544} & \textbf{0.349} & \textbf{0.240} & \textbf{0.579} & \textbf{0.345} & \textbf{0.233} & \textbf{0.593} \\
+ExtraTrees & Learned deterministic & 0.438 & 0.310 & 0.485 & 0.430 & 0.314 & 0.486 & 0.420 & 0.289 & 0.515 \\
+Direct U-Net & Deep deterministic & 0.404 & 0.297 & 0.508 & 0.375 & 0.255 & 0.552 & 0.371 & 0.250 & 0.562 \\
+PCHIP & Interpolation & 0.712 & 0.310 & 0.490 & 0.923 & 0.306 & 0.496 & 0.873 & 0.308 & 0.489 \\
+\bottomrule
+\end{tabular}
+\end{table*}

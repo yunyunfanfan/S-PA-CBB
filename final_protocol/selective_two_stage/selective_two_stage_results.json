@@ -1,0 +1,84 @@
+{
+  "protocol": {
+    "validation_curves": 203,
+    "test_curves": 203,
+    "layouts": [
+      "random",
+      "endpoints",
+      "high_stress",
+      "low_stress"
+    ],
+    "validation_cases": 812,
+    "test_cases": 812,
+    "steps": 3,
+    "ensemble": 32,
+    "eta": 0.5
+  },
+  "gate": {
+    "objective": 1.8112282396409674,
+    "mae": 0.3054153775578947,
+    "strength_mae_mpa": 16.695131645489603,
+    "name": "tail-aware residual",
+    "threshold": 3.630996192978315,
+    "alpha": 0.5,
+    "rate": 0.8497536945812808,
+    "validation_physics": 0.3393612515658434,
+    "validation_pacbb": 0.3414103124896294
+  },
+  "test": {
+    "Basquin": {
+      "grid_mae": 0.28211153505067227,
+      "strength_mae_mpa": 16.346524639633227
+    },
+    "always_PA_CBB": {
+      "grid_mae": 0.30815204469890795,
+      "strength_mae_mpa": 18.49860376355399
+    },
+    "selective_PA_CBB": {
+      "grid_mae": 0.2606466170720093,
+      "strength_mae_mpa": 15.733117218974645
+    },
+    "oracle_selective_weight": {
+      "grid_mae": 0.22892568514967943
+    },
+    "activation_rate": 0.8275862068965517,
+    "selection_precision": 0.6116071428571429,
+    "selection_recall": 0.8491735537190083,
+    "bootstrap_delta_vs_Basquin": [
+      -0.03408204407807241,
+      -0.022028331715083713,
+      -0.0066262548238380575
+    ]
+  },
+  "by_layout": [
+    {
+      "layout": "endpoints",
+      "Basquin": 0.23723754896025354,
+      "always_PA_CBB": 0.303069660132705,
+      "selective_PA_CBB": 0.24669582264731854,
+      "activation_rate": 0.7044334975369458
+    },
+    {
+      "layout": "high_stress",
+      "Basquin": 0.29930083009556596,
+      "always_PA_CBB": 0.3072929683134529,
+      "selective_PA_CBB": 0.2700639567280583,
+      "activation_rate": 0.8522167487684729
+    },
+    {
+      "layout": "low_stress",
+      "Basquin": 0.3485388034596819,
+      "always_PA_CBB": 0.33092373925986074,
+      "selective_PA_CBB": 0.2951156385569819,
+      "activation_rate": 0.896551724137931
+    },
+    {
+      "layout": "random",
+      "Basquin": 0.24336895768718766,
+      "always_PA_CBB": 0.2913218110896133,
+      "selective_PA_CBB": 0.2307110503556785,
+      "activation_rate": 0.8571428571428571
+    }
+  ],
+  "feature_policy": "all gate variables are available before complete-curve truth"
+}

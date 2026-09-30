@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4.2pt}
+\caption{True leave-one-database-out evaluation under identical sparse masks. The best non-physics comparator is selected separately within the prespecified baseline set.}
+\label{tab:lodo_latest}
+\begin{tabular}{llrrrrrr}
+\toprule
+Database & $k$ & Curves & S-PA-CBB & Best non-physics & Gain (\%) & Grid MAE & Raw PA-CBB \\
+\midrule
+AM2022 & 2 & 1015 & 0.371 & RF: 0.465 & +20.1 & 0.289 & 0.392 \\
+AM2022 & 3 & 1015 & 0.333 & RF: 0.439 & +24.1 & 0.230 & 0.363 \\
+AM2022 & 4 & 1015 & 0.319 & ET: 0.434 & +26.5 & 0.210 & 0.339 \\
+CMA2022 & 2 & 105 & 0.527 & RF: 0.463 & -13.7 & 0.478 & 0.802 \\
+CMA2022 & 3 & 105 & 0.390 & RF: 0.440 & +11.3 & 0.310 & 0.750 \\
+CMA2022 & 4 & 105 & 0.365 & RF: 0.472 & +22.6 & 0.274 & 0.709 \\
+Weld2025 & 2 & 2817 & 0.328 & RF: 0.567 & +42.3 & 0.254 & 0.364 \\
+Weld2025 & 3 & 2817 & 0.276 & Linear: 0.512 & +46.1 & 0.191 & 0.330 \\
+Weld2025 & 4 & 2817 & 0.285 & Linear: 0.465 & +38.6 & 0.203 & 0.308 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.98\textwidth}\footnotesize Best non-physics excludes Ridge and MLP. Each target database is absent from model fitting and gate selection.\end{minipage}
+\end{table*}

@@ -1,0 +1,26 @@
+{
+  "am2022_curves": {
+    "train": 2390,
+    "val": 557,
+    "test": 1015,
+    "manifest": "lodo_protocol/manifests/lodo_am2022_curves.json",
+    "trainval_data": "lodo_protocol/manifests/lodo_am2022_curves_trainval.json",
+    "test_data": "lodo_protocol/manifests/lodo_am2022_curves_test.json"
+  },
+  "cma2022_curves": {
+    "train": 3105,
+    "val": 752,
+    "test": 105,
+    "manifest": "lodo_protocol/manifests/lodo_cma2022_curves.json",
+    "trainval_data": "lodo_protocol/manifests/lodo_cma2022_curves_trainval.json",
+    "test_data": "lodo_protocol/manifests/lodo_cma2022_curves_test.json"
+  },
+  "weld2025_disjoint_curves": {
+    "train": 918,
+    "val": 227,
+    "test": 2817,
+    "manifest": "lodo_protocol/manifests/lodo_weld2025_disjoint_curves.json",
+    "trainval_data": "lodo_protocol/manifests/lodo_weld2025_disjoint_curves_trainval.json",
+    "test_data": "lodo_protocol/manifests/lodo_weld2025_disjoint_curves_test.json"
+  }
+}

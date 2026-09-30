@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code or processed data, please cite the associated manuscript and this repository."
+title: "S-PA-CBB: Selective Physics-Anchored Conditional Brownian Bridges"
+type: software
+authors:
+  - family-names: Zhang
+    given-names: Yunjian
+    orcid: "https://orcid.org/0009-0002-8632-3996"
+  - family-names: Zhang
+    given-names: Fuxiang
+    orcid: "https://orcid.org/0009-0003-1462-2943"
+  - family-names: Li
+    given-names: Yixuan
+    orcid: "https://orcid.org/0009-0002-6176-8331"
+  - family-names: Yang
+    given-names: Hubin
+    orcid: "https://orcid.org/0009-0004-0924-8974"
+repository-code: "https://github.com/yunyunfanfan/S-PA-CBB"
+date-released: 2026-09-30

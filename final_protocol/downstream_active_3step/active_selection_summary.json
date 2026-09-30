@@ -1,0 +1,83 @@
+{
+  "method": "PA-CBB",
+  "checkpoint": "multidata5/model/model.pt",
+  "split_seed": 20260928,
+  "split_counts": {
+    "train": 2377,
+    "validation": 792,
+    "test": 793
+  },
+  "steps": 3,
+  "ensemble": 32,
+  "eta": 0.5,
+  "grid_mae_threshold": 0.25,
+  "eivr": "Gaussian conditional-variance approximation from the joint generated curve ensemble",
+  "summary": [
+    {
+      "policy": "random",
+      "curves": 793,
+      "grid_mae_budget_auc": 0.2369892343263345,
+      "mae_after_one_test": 0.236360598783024,
+      "mae_after_two_tests": 0.21409353981214996,
+      "slope_error_after_two_tests": 1.668261938753225,
+      "strength_error_mpa_N1e6_after_two_tests": 14.879449325465403,
+      "mean_tests_to_threshold": 0.9911727616645649,
+      "threshold_success_rate": 0.7263556116015133
+    },
+    {
+      "policy": "largest_gap",
+      "curves": 793,
+      "grid_mae_budget_auc": 0.2301394863390043,
+      "mae_after_one_test": 0.22620097956471005,
+      "mae_after_two_tests": 0.20701378629945716,
+      "slope_error_after_two_tests": 1.672904152474731,
+      "strength_error_mpa_N1e6_after_two_tests": 14.237322457679927,
+      "mean_tests_to_threshold": 0.9281210592686002,
+      "threshold_success_rate": 0.7616645649432535
+    },
+    {
+      "policy": "space_filling",
+      "curves": 793,
+      "grid_mae_budget_auc": 0.22802216548608878,
+      "mae_after_one_test": 0.2247206156916005,
+      "mae_after_two_tests": 0.20150523063401407,
+      "slope_error_after_two_tests": 1.433206207599203,
+      "strength_error_mpa_N1e6_after_two_tests": 14.54317305442883,
+      "mean_tests_to_threshold": 0.9129886506935687,
+      "threshold_success_rate": 0.7730138713745272
+    },
+    {
+      "policy": "raw_variance",
+      "curves": 793,
+      "grid_mae_budget_auc": 0.22723268248460257,
+      "mae_after_one_test": 0.22356006784028695,
+      "mae_after_two_tests": 0.2006683943306964,
+      "slope_error_after_two_tests": 1.4278296015818162,
+      "strength_error_mpa_N1e6_after_two_tests": 14.636426573983842,
+      "mean_tests_to_threshold": 0.914249684741488,
+      "threshold_success_rate": 0.7641866330390921
+    },
+    {
+      "policy": "conformal_width",
+      "curves": 793,
+      "grid_mae_budget_auc": 0.2347795437659697,
+      "mae_after_one_test": 0.23303109524867874,
+      "mae_after_two_tests": 0.21191378463938138,
+      "slope_error_after_two_tests": 1.53996382655403,
+      "strength_error_mpa_N1e6_after_two_tests": 13.88662773246465,
+      "mean_tests_to_threshold": 0.9760403530895334,
+      "threshold_success_rate": 0.7301387137452712
+    },
+    {
+      "policy": "eivr",
+      "curves": 793,
+      "grid_mae_budget_auc": 0.2269454502288022,
+      "mae_after_one_test": 0.22314353114343982,
+      "mae_after_two_tests": 0.20035253870118913,
+      "slope_error_after_two_tests": 1.484158044917233,
+      "strength_error_mpa_N1e6_after_two_tests": 14.439250199815241,
+      "mean_tests_to_threshold": 0.9041614123581336,
+      "threshold_success_rate": 0.7692307692307693
+    }
+  ]
+}

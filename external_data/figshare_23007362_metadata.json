@@ -1,0 +1,165 @@
+{
+  "files": [
+    {
+      "id": 41461434,
+      "name": "FatigueData-CMA2022.mat",
+      "size": 631746,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/41461434",
+      "supplied_md5": "fe782a1b864d346d99b0204a1b218e4c",
+      "computed_md5": "fe782a1b864d346d99b0204a1b218e4c",
+      "mimetype": "application/octet-stream"
+    },
+    {
+      "id": 41461437,
+      "name": "FatigueData-CMA2022.json",
+      "size": 7944858,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/41461437",
+      "supplied_md5": "19f18e02bb224093162e6e03a9963550",
+      "computed_md5": "19f18e02bb224093162e6e03a9963550",
+      "mimetype": "text/plain"
+    },
+    {
+      "id": 41461440,
+      "name": "FatigueData-CMA2022.xlsx",
+      "size": 761730,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/41461440",
+      "supplied_md5": "d4d7456f83a4f55e3aa790acdedd2b01",
+      "computed_md5": "d4d7456f83a4f55e3aa790acdedd2b01",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    }
+  ],
+  "folder_structure": {},
+  "authors": [
+    {
+      "id": 14591738,
+      "full_name": "Zian Zhang",
+      "first_name": "Zian",
+      "last_name": "Zhang",
+      "is_active": true,
+      "url_name": "Zian_Zhang",
+      "orcid_id": "0009-0003-0037-8417"
+    },
+    {
+      "id": 13112952,
+      "full_name": "Haoxuan Tang",
+      "first_name": "Haoxuan",
+      "last_name": "Tang",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 14321643,
+      "full_name": "Zhiping Xu",
+      "first_name": "Zhiping",
+      "last_name": "Xu",
+      "is_active": true,
+      "url_name": "Zhiping_Xu",
+      "orcid_id": ""
+    }
+  ],
+  "custom_fields": [],
+  "figshare_url": "https://figshare.com/articles/dataset/Fatigue_database_of_complex_metallic_alloys/23007362",
+  "download_disabled": false,
+  "description": "<p>The past few decades have witnessed rapid progresses in the research and development of complex metallic alloys such as metallic glasses and multi-principal element alloys, which offer new solutions to tackle engineering problems of materials such as the strength-toughness conflict and deployment in harsh environments and/or for long-term service. A fatigue database (FatigueData-CMA2022) is compiled from the literature by the end of 2022. Data for both metallic glasses and multi-principal element alloys are included and analyzed for their statistics and patterns. Automatic extraction and manual examination are combined in the workflow to improve the efficiency of processing, the quality of published data, and the reusability. The database contains 272 fatigue datasets of <em>S</em>-<em>N</em> (the stress-life relation), <em>\u03b5</em>-<em>N</em> (the strain-life relation), and d<em>a</em>/d<em>N</em>-\u0394<em>K</em> (the relation between the fatigue crack growth rate and the stress intensity factor range) data, together with the information of materials, processing and testing conditions, and mechanical properties. The database and scripts are released in open repositories, which are designed in formats that can be continuously expanded and updated.\u00a0</p>\n<p><br></p>\n<p>Article DOI: 10.1038/s41597-023-02354-1</p>",
+  "funding": "This study was supported by the National Natural Science Foundation of China through grants 11825203, 11832010, 11921002, 52090032, 12122204, and 11872150.",
+  "funding_list": [
+    {
+      "id": 23918870,
+      "title": "This study was supported by the National Natural Science Foundation of China through grants 11825203, 11832010, 11921002, 52090032, 12122204, and 11872150.",
+      "grant_code": "",
+      "funder_name": null,
+      "is_user_defined": 1
+    }
+  ],
+  "version": 2,
+  "status": "public",
+  "size": 9338334,
+  "created_date": "2023-07-05T15:09:45Z",
+  "modified_date": "2023-07-06T01:38:05Z",
+  "is_public": true,
+  "is_confidential": false,
+  "is_metadata_record": false,
+  "confidential_reason": "",
+  "metadata_reason": "",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "tags": [
+    "fatigue",
+    "complex metallic alloys",
+    "metallic glass",
+    "multi-principal element alloys",
+    "open science",
+    "database"
+  ],
+  "keywords": [
+    "fatigue",
+    "complex metallic alloys",
+    "metallic glass",
+    "multi-principal element alloys",
+    "open science",
+    "database"
+  ],
+  "categories": [
+    {
+      "id": 26218,
+      "title": "Aerospace materials",
+      "parent_id": 26215,
+      "path": "/26212/26215/26218",
+      "source_id": "400101",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 26773,
+      "title": "Solid mechanics",
+      "parent_id": 26752,
+      "path": "/26212/26752/26773",
+      "source_id": "401707",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 26734,
+      "title": "Metals and alloy materials",
+      "parent_id": 26713,
+      "path": "/26212/26713/26734",
+      "source_id": "401607",
+      "taxonomy_id": 100
+    }
+  ],
+  "references": [],
+  "has_linked_file": false,
+  "citation": "Zhang, Zian; Tang, Haoxuan; Xu, Zhiping (2023). Fatigue database of complex metallic alloys. figshare. Dataset. https://doi.org/10.6084/m9.figshare.23007362.v2",
+  "related_materials": [],
+  "is_embargoed": false,
+  "embargo_date": null,
+  "embargo_type": null,
+  "embargo_title": "",
+  "embargo_reason": "",
+  "embargo_options": [],
+  "id": 23007362,
+  "title": "Fatigue database of complex metallic alloys",
+  "doi": "10.6084/m9.figshare.23007362.v2",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/23007362",
+  "published_date": "2023-07-05T15:09:44Z",
+  "thumb": "",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": null,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/23007362",
+  "url_public_api": "https://api.figshare.com/v2/articles/23007362",
+  "url_private_html": "https://figshare.com/account/articles/23007362",
+  "url_public_html": "https://figshare.com/articles/dataset/Fatigue_database_of_complex_metallic_alloys/23007362",
+  "timeline": {
+    "posted": "2023-07-05T15:09:44",
+    "firstOnline": "2023-05-22"
+  },
+  "resource_title": null,
+  "resource_doi": null
+}

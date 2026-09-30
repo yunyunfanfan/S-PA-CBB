@@ -1,0 +1,136 @@
+{
+  "method": "PA-CBB",
+  "checkpoint": "multidata5/model/model.pt",
+  "split_seed": 20260928,
+  "split_counts": {
+    "train": 2377,
+    "validation": 792,
+    "test": 793
+  },
+  "steps": 3,
+  "ensemble": 32,
+  "eta": 0.5,
+  "masks_per_curve": 1,
+  "interval": "split-conformal expansion of raw 90% posterior interval in log10 stress",
+  "calibration": {
+    "k2_N100000": 0.07309786491601589,
+    "k2_N1000000": 0.07642239093833281,
+    "k2_N10000000": 0.17283688789025264,
+    "k3_N100000": 0.06362745716409468,
+    "k3_N1000000": 0.07510453044171461,
+    "k3_N10000000": 0.10188500503614173,
+    "k4_N100000": 0.06344506748061451,
+    "k4_N1000000": 0.06390925465714714,
+    "k4_N10000000": 0.11888132054548817
+  },
+  "summary": [
+    {
+      "known": 2,
+      "target_cycles": 100000,
+      "cases": 483,
+      "stress_mae_mpa": 23.79232727978604,
+      "relative_stress_error": 0.09148176374676216,
+      "spearman_rho": 0.9770629793344764,
+      "coverage90": 0.8674948240165632,
+      "interval_width_mpa": 108.4357108248654,
+      "pairwise_ranking_accuracy": 0.9462814532271505,
+      "calibration_q_logS": 0.07309786491601589
+    },
+    {
+      "known": 2,
+      "target_cycles": 1000000,
+      "cases": 472,
+      "stress_mae_mpa": 18.462297530159155,
+      "relative_stress_error": 0.08381249253827652,
+      "spearman_rho": 0.9806355230372764,
+      "coverage90": 0.885593220338983,
+      "interval_width_mpa": 82.9063622074438,
+      "pairwise_ranking_accuracy": 0.9461387599409838,
+      "calibration_q_logS": 0.07642239093833281
+    },
+    {
+      "known": 2,
+      "target_cycles": 10000000,
+      "cases": 89,
+      "stress_mae_mpa": 19.671151730850752,
+      "relative_stress_error": 0.06931091501092947,
+      "spearman_rho": 0.9933094994892748,
+      "coverage90": 0.9775280898876404,
+      "interval_width_mpa": 204.6627994483866,
+      "pairwise_ranking_accuracy": 0.9708886618998979,
+      "calibration_q_logS": 0.17283688789025264
+    },
+    {
+      "known": 3,
+      "target_cycles": 100000,
+      "cases": 483,
+      "stress_mae_mpa": 21.740151535583344,
+      "relative_stress_error": 0.08202733669993216,
+      "spearman_rho": 0.9825321874425575,
+      "coverage90": 0.8571428571428571,
+      "interval_width_mpa": 94.49972866966105,
+      "pairwise_ranking_accuracy": 0.9535407163045626,
+      "calibration_q_logS": 0.06362745716409468
+    },
+    {
+      "known": 3,
+      "target_cycles": 1000000,
+      "cases": 472,
+      "stress_mae_mpa": 16.093108272330348,
+      "relative_stress_error": 0.07582866595641691,
+      "spearman_rho": 0.9831988595423519,
+      "coverage90": 0.8898305084745762,
+      "interval_width_mpa": 80.90173552391305,
+      "pairwise_ranking_accuracy": 0.9512576918924754,
+      "calibration_q_logS": 0.07510453044171461
+    },
+    {
+      "known": 3,
+      "target_cycles": 10000000,
+      "cases": 89,
+      "stress_mae_mpa": 18.061945884519105,
+      "relative_stress_error": 0.06136249647723467,
+      "spearman_rho": 0.9927306775621384,
+      "coverage90": 0.9550561797752809,
+      "interval_width_mpa": 118.52403734028428,
+      "pairwise_ranking_accuracy": 0.9721654749744637,
+      "calibration_q_logS": 0.10188500503614173
+    },
+    {
+      "known": 4,
+      "target_cycles": 100000,
+      "cases": 483,
+      "stress_mae_mpa": 19.275987801918124,
+      "relative_stress_error": 0.07426672158114714,
+      "spearman_rho": 0.9860748455618314,
+      "coverage90": 0.8840579710144928,
+      "interval_width_mpa": 93.35447187076832,
+      "pairwise_ranking_accuracy": 0.9587295860072335,
+      "calibration_q_logS": 0.06344506748061451
+    },
+    {
+      "known": 4,
+      "target_cycles": 1000000,
+      "cases": 472,
+      "stress_mae_mpa": 14.822605109750311,
+      "relative_stress_error": 0.0688614547804473,
+      "spearman_rho": 0.9857057072409978,
+      "coverage90": 0.8940677966101694,
+      "interval_width_mpa": 69.5505315908048,
+      "pairwise_ranking_accuracy": 0.9550631544855879,
+      "calibration_q_logS": 0.06390925465714714
+    },
+    {
+      "known": 4,
+      "target_cycles": 10000000,
+      "cases": 89,
+      "stress_mae_mpa": 15.9546991618317,
+      "relative_stress_error": 0.05663922178755637,
+      "spearman_rho": 0.9945011916922032,
+      "coverage90": 0.9662921348314607,
+      "interval_width_mpa": 139.25915509242571,
+      "pairwise_ranking_accuracy": 0.9770173646578141,
+      "calibration_q_logS": 0.11888132054548817
+    }
+  ]
+}

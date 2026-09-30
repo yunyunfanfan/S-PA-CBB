@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{Backbone component checks before the selective gate. Values are means across the common three seeds; raw PA-CBB is the unconditional generative component of S-PA-CBB.}
+\label{tab:core_ablation}
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Variant & $k$ & Grid MAE & Energy & Violation \\
+\midrule
+Raw PA-CBB & 2 & \textbf{0.287} & \textbf{0.343} & \textbf{0.160} \\
+No physical state & 2 & 0.293 & 0.350 & 0.168 \\
+Raw PA-CBB & 3 & \textbf{0.254} & \textbf{0.310} & \textbf{0.175} \\
+No physical state & 3 & 0.263 & 0.320 & 0.182 \\
+Raw PA-CBB & 4 & \textbf{0.233} & \textbf{0.286} & \textbf{0.179} \\
+No physical state & 4 & 0.241 & 0.296 & 0.188 \\
+\bottomrule
+\end{tabular}
+\end{table}

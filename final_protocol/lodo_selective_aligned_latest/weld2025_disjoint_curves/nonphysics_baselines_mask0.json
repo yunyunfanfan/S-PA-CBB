@@ -1,0 +1,402 @@
+{
+  "training_database": "LODO excluding Weld2025 aligned",
+  "training_curves": 918,
+  "training_cases": 11016,
+  "train_seconds": {
+    "Ridge": 0.21111083030700684,
+    "kNN": 0.0051081180572509766,
+    "RandomForest": 8.59636926651001,
+    "ExtraTrees": 11.959487915039062
+  },
+  "external": {
+    "weld2025_disjoint_curves": {
+      "eligible_curves": 2817,
+      "known_points": {
+        "2": {
+          "Ridge": {
+            "point": {
+              "mae_logN": 0.7528488285453138,
+              "rmse_logN": 1.0656945286059292,
+              "median_ae_logN": 0.5229927648140045,
+              "p90_ae_logN": 1.6982564974795644,
+              "mean_bias_logN": -0.20485935874675662,
+              "r2": -0.5650821071690006,
+              "pearson_r": 0.4768682678253611,
+              "factor_2_accuracy": 0.31204619320932164,
+              "factor_3_accuracy": 0.46421409307793376
+            },
+            "curve": {
+              "grid_mae_logN": 0.7119460701942444,
+              "slope_error": 5.617188102797227,
+              "monotonic_violation": 0.40168561842271006
+            }
+          },
+          "kNN": {
+            "point": {
+              "mae_logN": 0.6199289263775608,
+              "rmse_logN": 0.795020519473928,
+              "median_ae_logN": 0.5149731996760543,
+              "p90_ae_logN": 1.2487331292841137,
+              "mean_bias_logN": -0.33531561551394934,
+              "r2": 0.12897959302115647,
+              "pearson_r": 0.547963016706252,
+              "factor_2_accuracy": 0.2942742548924694,
+              "factor_3_accuracy": 0.46556254754166376
+            },
+            "curve": {
+              "grid_mae_logN": 0.5786352877842338,
+              "slope_error": 3.043770671361111,
+              "monotonic_violation": 0.17619980074890929
+            }
+          },
+          "RandomForest": {
+            "point": {
+              "mae_logN": 0.5673000839907124,
+              "rmse_logN": 0.7509742838237657,
+              "median_ae_logN": 0.4400636759445202,
+              "p90_ae_logN": 1.2169541224707223,
+              "mean_bias_logN": -0.013988482378419303,
+              "r2": 0.22281969735535245,
+              "pearson_r": 0.6125595161664736,
+              "factor_2_accuracy": 0.3605905539036028,
+              "factor_3_accuracy": 0.5336767858377706
+            },
+            "curve": {
+              "grid_mae_logN": 0.4939383294456353,
+              "slope_error": 3.2018666939805795,
+              "monotonic_violation": 0.04978987025776678
+            }
+          },
+          "ExtraTrees": {
+            "point": {
+              "mae_logN": 0.6312540453719159,
+              "rmse_logN": 0.8348961578725206,
+              "median_ae_logN": 0.48938448787452904,
+              "p90_ae_logN": 1.3482946053883302,
+              "mean_bias_logN": 0.29768875732573946,
+              "r2": 0.03941327796511307,
+              "pearson_r": 0.5565300525717978,
+              "factor_2_accuracy": 0.32611852568978633,
+              "factor_3_accuracy": 0.48900490975727817
+            },
+            "curve": {
+              "grid_mae_logN": 0.6016381263416121,
+              "slope_error": 4.071371299000603,
+              "monotonic_violation": 0.07144411235929322
+            }
+          },
+          "Linear": {
+            "point": {
+              "mae_logN": 0.6220514068401191,
+              "rmse_logN": 1.1295358599602667,
+              "median_ae_logN": 0.28132923496227713,
+              "p90_ae_logN": 1.5612819671630869,
+              "mean_bias_logN": 0.027818674216219544,
+              "r2": -0.7582138659725017,
+              "pearson_r": 0.5296732627583491,
+              "factor_2_accuracy": 0.5212295138648779,
+              "factor_3_accuracy": 0.6629555355784524
+            },
+            "curve": {
+              "grid_mae_logN": 0.4871170764628499,
+              "slope_error": 5.255432310278205,
+              "monotonic_violation": 0.0938999393085758
+            }
+          },
+          "Polynomial": {
+            "point": {
+              "mae_logN": 0.6220513768520992,
+              "rmse_logN": 1.1295358169398964,
+              "median_ae_logN": 0.2813291915342049,
+              "p90_ae_logN": 1.5612831115722665,
+              "mean_bias_logN": 0.027818611506174717,
+              "r2": -0.7582137320431368,
+              "pearson_r": 0.529673284033004,
+              "factor_2_accuracy": 0.5212640896203582,
+              "factor_3_accuracy": 0.6629555355784524
+            },
+            "curve": {
+              "grid_mae_logN": 0.48711705207824707,
+              "slope_error": 5.2554323372399026,
+              "monotonic_violation": 0.0938999393085758
+            }
+          },
+          "PCHIP": {
+            "point": {
+              "mae_logN": 0.6220514062419435,
+              "rmse_logN": 1.1295358595914504,
+              "median_ae_logN": 0.2813290999719271,
+              "p90_ae_logN": 1.5612820156200478,
+              "mean_bias_logN": 0.027818675373099906,
+              "r2": -0.7582138648243166,
+              "pearson_r": 0.5296732628462015,
+              "factor_2_accuracy": 0.5212295138648779,
+              "factor_3_accuracy": 0.6629555355784524
+            },
+            "curve": {
+              "grid_mae_logN": 0.4871170761703257,
+              "slope_error": 5.2554323076031855,
+              "monotonic_violation": 0.0938999393085758
+            }
+          }
+        },
+        "3": {
+          "Ridge": {
+            "point": {
+              "mae_logN": 0.7147911748023875,
+              "rmse_logN": 1.0163384494404732,
+              "median_ae_logN": 0.49548622418586064,
+              "p90_ae_logN": 1.6148001424171912,
+              "mean_bias_logN": -0.1341211477852931,
+              "r2": -0.44398503161731506,
+              "pearson_r": 0.55103496055223,
+              "factor_2_accuracy": 0.3309327714997127,
+              "factor_3_accuracy": 0.48626699865926065
+            },
+            "curve": {
+              "grid_mae_logN": 0.6723395586013794,
+              "slope_error": 5.55296783407012,
+              "monotonic_violation": 0.40312847114867106
+            }
+          },
+          "kNN": {
+            "point": {
+              "mae_logN": 0.6012431967661184,
+              "rmse_logN": 0.7683608525460046,
+              "median_ae_logN": 0.4970539912526899,
+              "p90_ae_logN": 1.2169813676274372,
+              "mean_bias_logN": -0.32461751654904925,
+              "r2": 0.17469126971307514,
+              "pearson_r": 0.5799549456430281,
+              "factor_2_accuracy": 0.30473089446466195,
+              "factor_3_accuracy": 0.48052097299367935
+            },
+            "curve": {
+              "grid_mae_logN": 0.5674856798153421,
+              "slope_error": 3.069514263470517,
+              "monotonic_violation": 0.18026498104824393
+            }
+          },
+          "RandomForest": {
+            "point": {
+              "mae_logN": 0.5427367027675049,
+              "rmse_logN": 0.7190648388325113,
+              "median_ae_logN": 0.41718087366633405,
+              "p90_ae_logN": 1.1798552411905097,
+              "mean_bias_logN": -0.026004274637774136,
+              "r2": 0.2771934397997159,
+              "pearson_r": 0.6476051423068697,
+              "factor_2_accuracy": 0.3793143076039073,
+              "factor_3_accuracy": 0.5559088297261061
+            },
+            "curve": {
+              "grid_mae_logN": 0.45884489116688615,
+              "slope_error": 2.9893912879447195,
+              "monotonic_violation": 0.04982422389409918
+            }
+          },
+          "ExtraTrees": {
+            "point": {
+              "mae_logN": 0.5889467516395608,
+              "rmse_logN": 0.7774832578525256,
+              "median_ae_logN": 0.459734401542673,
+              "p90_ae_logN": 1.2541627410845044,
+              "mean_bias_logN": 0.26068481038429175,
+              "r2": 0.15497789217627378,
+              "pearson_r": 0.600327036478656,
+              "factor_2_accuracy": 0.34464661942156677,
+              "factor_3_accuracy": 0.5158398774181191
+            },
+            "curve": {
+              "grid_mae_logN": 0.5515052898612037,
+              "slope_error": 3.862007545732877,
+              "monotonic_violation": 0.0683293826651551
+            }
+          },
+          "Linear": {
+            "point": {
+              "mae_logN": 0.5119826792041151,
+              "rmse_logN": 0.9966042048656544,
+              "median_ae_logN": 0.2260757072800086,
+              "p90_ae_logN": 1.1577412605285657,
+              "mean_bias_logN": 0.00988779684937342,
+              "r2": -0.38845372546242873,
+              "pearson_r": 0.5752623415106028,
+              "factor_2_accuracy": 0.5935261444167784,
+              "factor_3_accuracy": 0.7356445125454893
+            },
+            "curve": {
+              "grid_mae_logN": 0.3480368554282698,
+              "slope_error": 3.997620924752843,
+              "monotonic_violation": 0.10412587172352193
+            }
+          },
+          "Polynomial": {
+            "point": {
+              "mae_logN": 0.8484764852221531,
+              "rmse_logN": 1.5016187589758796,
+              "median_ae_logN": 0.31223332358977096,
+              "p90_ae_logN": 2.923213078012224,
+              "mean_bias_logN": 0.03471692034500349,
+              "r2": -2.1521389237475343,
+              "pearson_r": 0.40110396522738356,
+              "factor_2_accuracy": 0.4892932388431335,
+              "factor_3_accuracy": 0.6181957479410075
+            },
+            "curve": {
+              "grid_mae_logN": 0.6770886182785034,
+              "slope_error": 6.320552731753221,
+              "monotonic_violation": 0.18504013649844836
+            }
+          },
+          "PCHIP": {
+            "point": {
+              "mae_logN": 0.7459350759210369,
+              "rmse_logN": 1.420077431021455,
+              "median_ae_logN": 0.2714663325218192,
+              "p90_ae_logN": 2.51946854755678,
+              "mean_bias_logN": 0.04295571757372994,
+              "r2": -1.8190970710440864,
+              "pearson_r": 0.3902080033163281,
+              "factor_2_accuracy": 0.5341505458724383,
+              "factor_3_accuracy": 0.671097490902126
+            },
+            "curve": {
+              "grid_mae_logN": 0.557039352125494,
+              "slope_error": 6.749972470882098,
+              "monotonic_violation": 0.15468297319271243
+            }
+          }
+        },
+        "4": {
+          "Ridge": {
+            "point": {
+              "mae_logN": 0.7055318677678528,
+              "rmse_logN": 1.0019208932349006,
+              "median_ae_logN": 0.4953180423940995,
+              "p90_ae_logN": 1.588284042563122,
+              "mean_bias_logN": -0.06746253140120118,
+              "r2": -0.4066805996201974,
+              "pearson_r": 0.5963634926784782,
+              "factor_2_accuracy": 0.32939711439367914,
+              "factor_3_accuracy": 0.48518550326348336
+            },
+            "curve": {
+              "grid_mae_logN": 0.662685215473175,
+              "slope_error": 5.470367380579615,
+              "monotonic_violation": 0.403998763269092
+            }
+          },
+          "kNN": {
+            "point": {
+              "mae_logN": 0.588871969363051,
+              "rmse_logN": 0.7492001301556518,
+              "median_ae_logN": 0.492148518259814,
+              "p90_ae_logN": 1.1910933750258126,
+              "mean_bias_logN": -0.31571198479266366,
+              "r2": 0.21345365016699291,
+              "pearson_r": 0.6043184419964582,
+              "factor_2_accuracy": 0.3104603229130883,
+              "factor_3_accuracy": 0.4872895912057712
+            },
+            "curve": {
+              "grid_mae_logN": 0.557055681177499,
+              "slope_error": 3.0260010854245656,
+              "monotonic_violation": 0.18075738316900844
+            }
+          },
+          "RandomForest": {
+            "point": {
+              "mae_logN": 0.5275025956407526,
+              "rmse_logN": 0.6989990140182253,
+              "median_ae_logN": 0.4071495209899372,
+              "p90_ae_logN": 1.1471376181744843,
+              "mean_bias_logN": -0.03272093046787414,
+              "r2": 0.31532927635718666,
+              "pearson_r": 0.6734407437273819,
+              "factor_2_accuracy": 0.38758158708347645,
+              "factor_3_accuracy": 0.5643679148059086
+            },
+            "curve": {
+              "grid_mae_logN": 0.431727765337073,
+              "slope_error": 2.8424277410558108,
+              "monotonic_violation": 0.05077467449929574
+            }
+          },
+          "ExtraTrees": {
+            "point": {
+              "mae_logN": 0.5609634666277564,
+              "rmse_logN": 0.7348110641870278,
+              "median_ae_logN": 0.44155561382830255,
+              "p90_ae_logN": 1.1949154069567052,
+              "mean_bias_logN": 0.23507290530213434,
+              "r2": 0.2433761871408423,
+              "pearson_r": 0.6369144127305898,
+              "factor_2_accuracy": 0.35365853658536583,
+              "factor_3_accuracy": 0.5315613191343181
+            },
+            "curve": {
+              "grid_mae_logN": 0.5117742382832166,
+              "slope_error": 3.6543841292111154,
+              "monotonic_violation": 0.06521465297101697
+            }
+          },
+          "Linear": {
+            "point": {
+              "mae_logN": 0.4649280526050083,
+              "rmse_logN": 0.921666157786642,
+              "median_ae_logN": 0.214702423601548,
+              "p90_ae_logN": 0.9922076485135795,
+              "mean_bias_logN": -0.013296082642656422,
+              "r2": -0.1903533921951044,
+              "pearson_r": 0.5990106136359852,
+              "factor_2_accuracy": 0.6152095499828237,
+              "factor_3_accuracy": 0.7572998969426314
+            },
+            "curve": {
+              "grid_mae_logN": 0.2727271339119765,
+              "slope_error": 3.238742236587481,
+              "monotonic_violation": 0.10967970959726088
+            }
+          },
+          "Polynomial": {
+            "point": {
+              "mae_logN": 0.565709171048743,
+              "rmse_logN": 1.0725485409424054,
+              "median_ae_logN": 0.2415660727640403,
+              "p90_ae_logN": 1.3798907902243838,
+              "mean_bias_logN": -0.0006669374184031728,
+              "r2": -0.6119907466046681,
+              "pearson_r": 0.5411698513666452,
+              "factor_2_accuracy": 0.5699072483682583,
+              "factor_3_accuracy": 0.7095929233940227
+            },
+            "curve": {
+              "grid_mae_logN": 0.3929159641265869,
+              "slope_error": 3.964893541245225,
+              "monotonic_violation": 0.14745725835079643
+            }
+          },
+          "PCHIP": {
+            "point": {
+              "mae_logN": 0.673576231728682,
+              "rmse_logN": 1.3005432068266491,
+              "median_ae_logN": 0.2564206471019812,
+              "p90_ae_logN": 1.9740075298457864,
+              "mean_bias_logN": 0.012679350803653826,
+              "r2": -1.3701629311641539,
+              "pearson_r": 0.44655561847774944,
+              "factor_2_accuracy": 0.5535898316729646,
+              "factor_3_accuracy": 0.693275506698729
+            },
+            "curve": {
+              "grid_mae_logN": 0.44644900216021355,
+              "slope_error": 5.686919746015016,
+              "monotonic_violation": 0.1467129295635943
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "purpose": "post-hoc explanatory visualization; excluded from aggregate claims",
+  "selection_rule": "post-hoc illustrative screening for simultaneous grid-MAE, 10^6-cycle fatigue-strength-error and ensemble-width reduction, followed by material-family diversity",
+  "frozen_protocol": {
+    "seed": 20261012,
+    "steps": 3,
+    "ensemble": 32,
+    "eta": 0.5
+  },
+  "cases": [
+    {
+      "curve_id": "WELD2025:2423",
+      "source": "WELD2025",
+      "score": 1.7271791856304262,
+      "frozen_mae": [
+        0.1692652702331543,
+        0.11367723345756531,
+        0.04552319645881653
+      ],
+      "frozen_strength": [
+        3.4022486091681117,
+        2.8050550147610522,
+        0.013183502078845777
+      ],
+      "family": "Welded joint",
+      "observed_indices_by_stage": [
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ]
+      ],
+      "selected_indices": [
+        0,
+        4
+      ],
+      "selected_stress_mpa": [
+        282.00005634846156,
+        174.00003111462436
+      ],
+      "replayed_grid_mae_logN": [
+        0.16937580704689026,
+        0.11490461230278015,
+        0.04545892775058746
+      ],
+      "replayed_strength_error_mpa_N1e6": [
+        3.358358921131952,
+        2.815097016616761,
+        0.006399580419412132
+      ],
+      "replayed_mean_ensemble_width90_logN": [
+        0.020793518424034096,
+        0.011961652338504769,
+        0.012719989567995027
+      ]
+    },
+    {
+      "curve_id": "FatigueData-AM2022:201",
+      "source": "FatigueData-AM2022",
+      "score": 1.5687565352713813,
+      "frozen_mae": [
+        0.5536444187164307,
+        0.16499020159244537,
+        0.1487707793712616
+      ],
+      "frozen_strength": [
+        3.1490350165591394,
+        0.7692694907199211,
+        0.5118179543905512
+      ],
+      "family": "Ti",
+      "observed_indices_by_stage": [
+        [
+          6,
+          7
+        ],
+        [
+          2,
+          6,
+          7
+        ],
+        [
+          2,
+          4,
+          6,
+          7
+        ]
+      ],
+      "selected_indices": [
+        2,
+        4
+      ],
+      "selected_stress_mpa": [
+        599.7783954376083,
+        500.21093889002674
+      ],
+      "replayed_grid_mae_logN": [
+        0.549304723739624,
+        0.1683964878320694,
+        0.14987561106681824
+      ],
+      "replayed_strength_error_mpa_N1e6": [
+        3.0248136338227027,
+        0.7727687418213236,
+        0.4192476148929245
+      ],
+      "replayed_mean_ensemble_width90_logN": [
+        0.12210389077663422,
+        0.07163999788463113,
+        0.055066548287868444
+      ]
+    },
+    {
+      "curve_id": "FatigueData-AM2022:1117",
+      "source": "FatigueData-AM2022",
+      "score": 1.1131890541169607,
+      "frozen_mae": [
+        0.30563193559646606,
+        0.21148262917995453,
+        0.17538180947303772
+      ],
+      "frozen_strength": [
+        37.95021873451299,
+        12.207432110301568,
+        11.877566732387834
+      ],
+      "family": "Cu7.2Ni1.8Si1Cr",
+      "observed_indices_by_stage": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          0,
+          4,
+          5,
+          6
+        ]
+      ],
+      "selected_indices": [
+        5,
+        6
+      ],
+      "selected_stress_mpa": [
+        286.1872339331884,
+        255.7274272436393
+      ],
+      "replayed_grid_mae_logN": [
+        0.3067662715911865,
+        0.21082979440689087,
+        0.14040999114513397
+      ],
+      "replayed_strength_error_mpa_N1e6": [
+        38.02644715846213,
+        32.63439985551227,
+        11.043717361070264
+      ],
+      "replayed_mean_ensemble_width90_logN": [
+        0.03898544758558278,
+        0.03122888356447215,
+        0.018221073597669585
+      ]
+    }
+  ]
+}

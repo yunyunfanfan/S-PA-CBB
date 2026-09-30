@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\caption{Corrected pooled holdout under the unified three-step protocol. The strongest non-physics baseline is selected separately within each database--sparsity task. HEA and NIMS contain only two test curves each and are audit cases, not stable population estimates.}
+\label{tab:pooled_final}
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+Database & $k$ & PA-CBB MAE & Best baseline MAE & Baseline & Relative change (\%) \\
+\midrule
+AM2022 & 2 & 0.392 & 0.406 & ExtraTrees & -3.4 \\
+AM2022 & 3 & 0.375 & 0.379 & Ridge & -1.0 \\
+AM2022 & 4 & 0.349 & 0.379 & MLP & -7.9 \\
+CMA2022 & 2 & 0.453 & 0.419 & Ridge & +8.1 \\
+CMA2022 & 3 & 0.437 & 0.428 & Ridge & +1.9 \\
+CMA2022 & 4 & 0.458 & 0.415 & Ridge & +10.2 \\
+HEA2022 & 2 & 1.191 & 0.807 & Ridge & +47.6 \\
+HEA2022 & 3 & 1.306 & 0.590 & Ridge & +121.3 \\
+HEA2022 & 4 & 1.228 & 0.627 & Ridge & +95.9 \\
+NIMS-derived & 2 & 1.035 & 0.563 & Polynomial & +83.9 \\
+NIMS-derived & 3 & 0.984 & 0.391 & Linear & +151.6 \\
+NIMS-derived & 4 & 1.065 & 0.422 & Linear & +152.6 \\
+Weld2025 & 2 & 0.314 & 0.331 & MLP & -5.1 \\
+Weld2025 & 3 & 0.297 & 0.297 & Ridge & -0.0 \\
+Weld2025 & 4 & 0.290 & 0.308 & Ridge & -5.9 \\
+\bottomrule
+\end{tabular}
+\end{table*}

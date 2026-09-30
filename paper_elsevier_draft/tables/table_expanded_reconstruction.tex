@@ -1,0 +1,42 @@
+\begin{table*}[t]
+\caption{AM2022 source-paper-held-out comparison under identical sparse masks. The main comparison contains non-physics baselines; component variants are reported in the ablation study. Bold and underline mark first and second place.}
+\label{tab:expanded_reconstruction}
+\centering\scriptsize\setlength{\tabcolsep}{2.8pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Method & MAE $\downarrow$ & RMSE $\downarrow$ & MedAE $\downarrow$ & P90AE $\downarrow$ & $R^2\uparrow$ & Pearson $r\uparrow$ & F2 $\uparrow$ & F3 $\uparrow$ \\
+\midrule
+\multicolumn{9}{c}{\textbf{$k=2$ observed tests}} \\
+\midrule
+kNN & 0.465 & 0.639 & 0.342 & 1.026 & 0.622 & 0.802 & 0.458 & 0.630 \\
+RF & \underline{0.384} & \textbf{0.531} & \underline{0.275} & \underline{0.867} & \underline{0.738} & \underline{0.860} & \underline{0.536} & \underline{0.719} \\
+ET & 0.391 & 0.537 & \underline{0.275} & 0.908 & 0.732 & 0.857 & 0.526 & 0.699 \\
+Linear & 0.852 & 1.518 & 0.346 & 2.626 & -1.137 & 0.454 & 0.458 & 0.594 \\
+Poly. & 0.845 & 1.507 & 0.346 & 2.599 & -1.105 & 0.457 & 0.458 & 0.595 \\
+PCHIP & 0.852 & 1.518 & 0.346 & 2.626 & -1.137 & 0.454 & 0.458 & 0.594 \\
+\textbf{S-PA-CBB (ours)} & \textbf{0.373} & \underline{0.535} & \textbf{0.247} & \textbf{0.866} & \textbf{0.761} & \textbf{0.873} & \textbf{0.558} & \textbf{0.726} \\
+\midrule
+\multicolumn{9}{c}{\textbf{$k=3$ observed tests}} \\
+\midrule
+kNN & 0.441 & 0.595 & 0.326 & 0.973 & 0.672 & 0.837 & 0.472 & 0.656 \\
+RF & \underline{0.364} & \underline{0.512} & \underline{0.247} & \textbf{0.830} & 0.757 & 0.871 & \underline{0.562} & \underline{0.727} \\
+ET & 0.370 & \textbf{0.508} & 0.267 & \underline{0.847} & \underline{0.761} & \underline{0.875} & 0.543 & 0.726 \\
+Linear & 0.705 & 1.299 & 0.286 & 2.104 & -0.564 & 0.559 & 0.518 & 0.654 \\
+Poly. & 0.914 & 1.608 & 0.352 & 2.860 & -1.396 & 0.433 & 0.456 & 0.580 \\
+PCHIP & 1.005 & 1.749 & 0.360 & 3.463 & -1.835 & 0.401 & 0.445 & 0.571 \\
+\textbf{S-PA-CBB (ours)} & \textbf{0.360} & 0.516 & \textbf{0.241} & 0.885 & \textbf{0.777} & \textbf{0.882} & \textbf{0.582} & \textbf{0.741} \\
+\midrule
+\multicolumn{9}{c}{\textbf{$k=4$ observed tests}} \\
+\midrule
+kNN & 0.424 & 0.566 & 0.319 & 0.928 & 0.710 & 0.853 & 0.479 & 0.672 \\
+RF & \underline{0.374} & 0.529 & \underline{0.255} & 0.870 & 0.746 & 0.865 & \underline{0.561} & \underline{0.728} \\
+ET & 0.382 & \underline{0.523} & 0.277 & \underline{0.865} & \underline{0.752} & \underline{0.868} & 0.532 & 0.703 \\
+Linear & 0.605 & 1.154 & 0.257 & 1.395 & -0.208 & 0.631 & 0.550 & 0.683 \\
+Poly. & 0.673 & 1.275 & 0.282 & 1.782 & -0.474 & 0.496 & 0.518 & 0.657 \\
+PCHIP & 0.811 & 1.508 & 0.303 & 2.503 & -1.062 & 0.444 & 0.499 & 0.631 \\
+\textbf{S-PA-CBB (ours)} & \textbf{0.321} & \textbf{0.468} & \textbf{0.207} & \textbf{0.743} & \textbf{0.817} & \textbf{0.904} & \textbf{0.625} & \textbf{0.771} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

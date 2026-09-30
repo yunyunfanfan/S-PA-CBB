@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\caption{Reverse-step and ensemble-size sensitivity. Coverage is the raw, uncalibrated 90\% interval coverage.}
+\label{tab:sampling_sensitivity}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{llcccccc}
+\toprule
+Sweep & Value & Point MAE & CRPS & Energy Score & 90\% coverage & Width & Time (s/curve) \\
+\midrule
+Steps & 1 & 0.326 & 0.326 & 0.322 & 0.000 & 0.000 & 0.0068 \\
+Steps & 3 & 0.332 & 0.324 & 0.319 & 0.043 & 0.041 & 0.0175 \\
+Steps & 5 & 0.333 & 0.327 & 0.322 & 0.034 & 0.033 & 0.0254 \\
+Steps & 9 & 0.335 & 0.330 & 0.325 & 0.024 & 0.023 & 0.0420 \\
+Steps & 16 & 0.339 & 0.336 & 0.331 & 0.021 & 0.017 & 0.0704 \\
+\addlinespace[3pt]
+Ensemble & 4 & 0.335 & 0.332 & 0.326 & 0.015 & 0.014 & 0.0027 \\
+Ensemble & 8 & 0.335 & 0.331 & 0.326 & 0.022 & 0.019 & 0.0053 \\
+Ensemble & 16 & 0.335 & 0.331 & 0.325 & 0.025 & 0.021 & 0.0107 \\
+Ensemble & 32 & 0.335 & 0.331 & 0.325 & 0.026 & 0.023 & 0.0214 \\
+Ensemble & 64 & 0.335 & 0.330 & 0.325 & 0.027 & 0.024 & 0.0427 \\
+\bottomrule
+\end{tabular}
+\end{table*}

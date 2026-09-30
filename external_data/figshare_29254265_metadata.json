@@ -1,0 +1,209 @@
+{
+  "files": [
+    {
+      "id": 55248743,
+      "name": "Weld-Fatigue-Database.xlsx",
+      "size": 2643827,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/55248743",
+      "supplied_md5": "87e4f31bb46a5f91fdb867f55eaefba9",
+      "computed_md5": "87e4f31bb46a5f91fdb867f55eaefba9",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "id": 55248749,
+      "name": "L-N.json",
+      "size": 1081639,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/55248749",
+      "supplied_md5": "4cc36caadecde2e1f347d8010206a7a8",
+      "computed_md5": "4cc36caadecde2e1f347d8010206a7a8",
+      "mimetype": "text/plain"
+    },
+    {
+      "id": 55248752,
+      "name": "parameter.json",
+      "size": 10689284,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/55248752",
+      "supplied_md5": "c6e93be560fefd4653514a24751eb3c5",
+      "computed_md5": "c6e93be560fefd4653514a24751eb3c5",
+      "mimetype": "text/plain"
+    },
+    {
+      "id": 55248755,
+      "name": "S-N.json",
+      "size": 6784857,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/55248755",
+      "supplied_md5": "55a9defc400f717147702d6c8a91f0ce",
+      "computed_md5": "55a9defc400f717147702d6c8a91f0ce",
+      "mimetype": "text/plain"
+    },
+    {
+      "id": 55248758,
+      "name": "\u03b5-N.json",
+      "size": 329170,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/55248758",
+      "supplied_md5": "cb04adc1f7a5802af3722229b0f189fe",
+      "computed_md5": "cb04adc1f7a5802af3722229b0f189fe",
+      "mimetype": "application/json"
+    },
+    {
+      "id": 57942397,
+      "name": "terminology_standardization_map.csv",
+      "size": 422233,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/57942397",
+      "supplied_md5": "4d9fe404550da5e1090aef6c2b64c317",
+      "computed_md5": "4d9fe404550da5e1090aef6c2b64c317",
+      "mimetype": "text/csv"
+    }
+  ],
+  "folder_structure": {
+    "55248743": "",
+    "55248749": "Weld-Fatigue-Database-json",
+    "55248752": "Weld-Fatigue-Database-json",
+    "55248755": "Weld-Fatigue-Database-json",
+    "55248758": "Weld-Fatigue-Database-json",
+    "57942397": ""
+  },
+  "authors": [
+    {
+      "id": 21497821,
+      "full_name": "Caiyan Deng",
+      "first_name": "Caiyan",
+      "last_name": "Deng",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 12443535,
+      "full_name": "Chenyu Luo",
+      "first_name": "Chenyu",
+      "last_name": "Luo",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 21497878,
+      "full_name": "Baoming Gong",
+      "first_name": "Baoming",
+      "last_name": "Gong",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 21497883,
+      "full_name": "Yong Liu",
+      "first_name": "Yong",
+      "last_name": "Liu",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 22243634,
+      "full_name": "Xu Zhang",
+      "first_name": "Xu",
+      "last_name": "Zhang",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 22243641,
+      "full_name": "Shuaikun Wang",
+      "first_name": "Shuaikun",
+      "last_name": "Wang",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    }
+  ],
+  "custom_fields": [],
+  "figshare_url": "https://figshare.com/articles/dataset/A_Dataset_of_Fatigue_Properties_for_Welded_Joints/29254265",
+  "download_disabled": false,
+  "description": "<p dir=\"ltr\">Welded joints are widely used across engineering applications, where fatigue failure critically affects structural reliability and service life. To address data fragmentation and inconsistency in fatigue-related studies, a structured fatigue performance database for welded joints was established. The database includes fatigue data types\u2014such as stress\u2013life (S\u2013N) and strain\u2013life (\u03b5\u2013N) data\u2014and consolidates key information on material properties, processing techniques, welding parameters, and testing conditions. Data were systematically extracted from 1,666 peer-reviewed publications using natural language processing, image recognition, and table parsing. All data entries have been organized in a unified format and deployed on an open-access platform, thereby supporting online access and extended analytical applications. Data quality has been ensured through quantitative assessments of completeness and usability. This database not only facilitates the identification of fatigue behavior patterns in welded joints but also provides a reliable dataset for training and validating machine learning models. To promote data standardization and open sharing within the field, the processing workflow and associated tools were made openly accessible.</p>",
+  "funding": null,
+  "funding_list": [],
+  "version": 2,
+  "status": "public",
+  "size": 21951010,
+  "created_date": "2025-09-14T14:17:37Z",
+  "modified_date": "2025-09-14T14:17:38Z",
+  "is_public": true,
+  "is_confidential": false,
+  "is_metadata_record": false,
+  "confidential_reason": "",
+  "metadata_reason": "",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "tags": [
+    "fatigue",
+    "weld joint",
+    "database",
+    "alloys"
+  ],
+  "keywords": [
+    "fatigue",
+    "weld joint",
+    "database",
+    "alloys"
+  ],
+  "categories": [
+    {
+      "id": 26734,
+      "title": "Metals and alloy materials",
+      "parent_id": 26713,
+      "path": "/26212/26713/26734",
+      "source_id": "401607",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 26773,
+      "title": "Solid mechanics",
+      "parent_id": 26752,
+      "path": "/26212/26752/26773",
+      "source_id": "401707",
+      "taxonomy_id": 100
+    }
+  ],
+  "references": [],
+  "has_linked_file": false,
+  "citation": "Deng, Caiyan; Luo, Chenyu; Gong, Baoming; Liu, Yong; Zhang, Xu; Wang, Shuaikun (2025). A Dataset of Fatigue Properties for Welded Joints. figshare. Dataset. https://doi.org/10.6084/m9.figshare.29254265.v2",
+  "related_materials": [],
+  "is_embargoed": false,
+  "embargo_date": null,
+  "embargo_type": null,
+  "embargo_title": "",
+  "embargo_reason": "",
+  "embargo_options": [],
+  "id": 29254265,
+  "title": "A Dataset of Fatigue Properties for Welded Joints",
+  "doi": "10.6084/m9.figshare.29254265.v2",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/29254265",
+  "published_date": "2025-09-14T14:17:37Z",
+  "thumb": "",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": null,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/29254265",
+  "url_public_api": "https://api.figshare.com/v2/articles/29254265",
+  "url_private_html": "https://figshare.com/account/articles/29254265",
+  "url_public_html": "https://figshare.com/articles/dataset/A_Dataset_of_Fatigue_Properties_for_Welded_Joints/29254265",
+  "timeline": {
+    "posted": "2025-09-14T14:17:37",
+    "firstOnline": "2025-06-10"
+  },
+  "resource_title": null,
+  "resource_doi": null
+}

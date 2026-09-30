@@ -1,0 +1,209 @@
+{
+  "model": "S-PA-CBB selective residual-mean correction",
+  "definition": "physics + gate*alpha*mean_residual + posterior_deviation",
+  "gate_training": "validation only; one gate per observed-test budget",
+  "gates": {
+    "2": {
+      "objective": 1.8236352668128601,
+      "score": "residual / spread",
+      "threshold": 3.7319320564243874,
+      "alpha": 0.5,
+      "activation": 0.5991189427312775,
+      "grid_mae": 0.24331900876811358,
+      "strength_mae_mpa": 13.73579645077611
+    },
+    "3": {
+      "objective": 1.856056207509182,
+      "score": "tail-aware residual",
+      "threshold": 7.8927675228120995,
+      "alpha": 0.25,
+      "activation": 0.47577092511013214,
+      "grid_mae": 0.2117719305297134,
+      "strength_mae_mpa": 12.583345524949634
+    },
+    "4": {
+      "objective": 1.7579416786000848,
+      "score": "tail-aware residual",
+      "threshold": 5.376164101722754,
+      "alpha": 0.5,
+      "activation": 0.7841409691629956,
+      "grid_mae": 0.186580642624471,
+      "strength_mae_mpa": 11.64145264779195
+    }
+  },
+  "summary": {
+    "2": {
+      "point": {
+        "mae_logN": 0.32756134594990866,
+        "rmse_logN": 0.4632607288475344,
+        "median_ae_logN": 0.2348248762930294,
+        "p90_ae_logN": 0.7175966978073121,
+        "mean_bias_logN": -0.06718660529778099,
+        "r2": 0.7042514483363189,
+        "pearson_r": 0.8434367337609929,
+        "factor_2_accuracy": 0.5992669939838186,
+        "factor_3_accuracy": 0.7792683770140377
+      },
+      "grid_mae_logN": 0.2542174886745977,
+      "raw_pacbb_grid_mae_logN": 0.3636948397279118,
+      "basquin_grid_mae_logN": 0.23397375643253326,
+      "slope_error": 2.010200738975163,
+      "monotonic_violation": 0.057104689843919976,
+      "crps_logN": 0.3065175111933835,
+      "energy_score": 0.3000644264062543,
+      "raw_coverage90": 0.03225917986308001,
+      "raw_width90_logN": 0.03337155186374476,
+      "conformal_q": 0.7361522503197193,
+      "conformal_coverage90": 0.9115897932369822,
+      "conformal_width90_logN": 1.5056760525031836,
+      "strength_N1e6_mae_mpa": 17.791805409199227,
+      "activation_rate": 0.8856940007099752,
+      "curves": 2817
+    },
+    "3": {
+      "point": {
+        "mae_logN": 0.2759841731432406,
+        "rmse_logN": 0.4003429231213926,
+        "median_ae_logN": 0.19380732156961233,
+        "p90_ae_logN": 0.6040362557168545,
+        "mean_bias_logN": -0.031364127753764605,
+        "r2": 0.7759472434672059,
+        "pearson_r": 0.8825412474454819,
+        "factor_2_accuracy": 0.67703505075656,
+        "factor_3_accuracy": 0.839647577092511
+      },
+      "grid_mae_logN": 0.19084057245306577,
+      "raw_pacbb_grid_mae_logN": 0.33046586535203865,
+      "basquin_grid_mae_logN": 0.18873773515224457,
+      "slope_error": 1.6936359199198237,
+      "monotonic_violation": 0.04540477172008657,
+      "crps_logN": 0.2502157788219776,
+      "energy_score": 0.22999572490895265,
+      "raw_coverage90": 0.03551043861329247,
+      "raw_width90_logN": 0.02829192667160549,
+      "conformal_q": 0.6811431457784796,
+      "conformal_coverage90": 0.928059758666922,
+      "conformal_width90_logN": 1.3905782182285646,
+      "strength_N1e6_mae_mpa": 14.09264097372683,
+      "activation_rate": 0.8384806531771388,
+      "curves": 2817
+    },
+    "4": {
+      "point": {
+        "mae_logN": 0.28536043261082134,
+        "rmse_logN": 0.40511714058503895,
+        "median_ae_logN": 0.2023483643310544,
+        "p90_ae_logN": 0.6233664601854984,
+        "mean_bias_logN": -0.06747117452112875,
+        "r2": 0.7700200792431354,
+        "pearson_r": 0.8813964340047656,
+        "factor_2_accuracy": 0.6564754379938166,
+        "factor_3_accuracy": 0.8238148402610787
+      },
+      "grid_mae_logN": 0.2032976964435563,
+      "raw_pacbb_grid_mae_logN": 0.30790016608643994,
+      "basquin_grid_mae_logN": 0.16572394967079163,
+      "slope_error": 1.5197735534226064,
+      "monotonic_violation": 0.09373532813448304,
+      "crps_logN": 0.2632666548887524,
+      "energy_score": 0.24356093692328495,
+      "raw_coverage90": 0.02726726210924081,
+      "raw_width90_logN": 0.024238397684796846,
+      "conformal_q": 0.6307477380326363,
+      "conformal_coverage90": 0.9065613191343181,
+      "conformal_width90_logN": 1.2857338737500694,
+      "strength_N1e6_mae_mpa": 14.72481373017586,
+      "activation_rate": 0.9552715654952076,
+      "curves": 2817
+    }
+  },
+  "domain_summary": {
+    "Weld2025": {
+      "2": {
+        "point": {
+          "mae_logN": 0.32756134594990866,
+          "rmse_logN": 0.4632607288475344,
+          "median_ae_logN": 0.2348248762930294,
+          "p90_ae_logN": 0.7175966978073121,
+          "mean_bias_logN": -0.06718660529778099,
+          "r2": 0.7042514483363189,
+          "pearson_r": 0.8434367337609929,
+          "factor_2_accuracy": 0.5992669939838186,
+          "factor_3_accuracy": 0.7792683770140377
+        },
+        "grid_mae_logN": 0.2542174886745977,
+        "raw_pacbb_grid_mae_logN": 0.3636948397279118,
+        "basquin_grid_mae_logN": 0.23397375643253326,
+        "slope_error": 2.010200738975163,
+        "monotonic_violation": 0.057104689843919976,
+        "crps_logN": 0.3065175111933835,
+        "energy_score": 0.3000644264062543,
+        "raw_coverage90": 0.03225917986308001,
+        "raw_width90_logN": 0.03337155186374476,
+        "conformal_q": 0.7361522503197193,
+        "conformal_coverage90": 0.9115897932369822,
+        "conformal_width90_logN": 1.5056760525031836,
+        "strength_N1e6_mae_mpa": 17.791805409199227,
+        "activation_rate": 0.8856940007099752,
+        "curves": 2817
+      },
+      "3": {
+        "point": {
+          "mae_logN": 0.2759841731432406,
+          "rmse_logN": 0.4003429231213926,
+          "median_ae_logN": 0.19380732156961233,
+          "p90_ae_logN": 0.6040362557168545,
+          "mean_bias_logN": -0.031364127753764605,
+          "r2": 0.7759472434672059,
+          "pearson_r": 0.8825412474454819,
+          "factor_2_accuracy": 0.67703505075656,
+          "factor_3_accuracy": 0.839647577092511
+        },
+        "grid_mae_logN": 0.19084057245306577,
+        "raw_pacbb_grid_mae_logN": 0.33046586535203865,
+        "basquin_grid_mae_logN": 0.18873773515224457,
+        "slope_error": 1.6936359199198237,
+        "monotonic_violation": 0.04540477172008657,
+        "crps_logN": 0.2502157788219776,
+        "energy_score": 0.22999572490895265,
+        "raw_coverage90": 0.03551043861329247,
+        "raw_width90_logN": 0.02829192667160549,
+        "conformal_q": 0.6811431457784796,
+        "conformal_coverage90": 0.928059758666922,
+        "conformal_width90_logN": 1.3905782182285646,
+        "strength_N1e6_mae_mpa": 14.09264097372683,
+        "activation_rate": 0.8384806531771388,
+        "curves": 2817
+      },
+      "4": {
+        "point": {
+          "mae_logN": 0.28536043261082134,
+          "rmse_logN": 0.40511714058503895,
+          "median_ae_logN": 0.2023483643310544,
+          "p90_ae_logN": 0.6233664601854984,
+          "mean_bias_logN": -0.06747117452112875,
+          "r2": 0.7700200792431354,
+          "pearson_r": 0.8813964340047656,
+          "factor_2_accuracy": 0.6564754379938166,
+          "factor_3_accuracy": 0.8238148402610787
+        },
+        "grid_mae_logN": 0.2032976964435563,
+        "raw_pacbb_grid_mae_logN": 0.30790016608643994,
+        "basquin_grid_mae_logN": 0.16572394967079163,
+        "slope_error": 1.5197735534226064,
+        "monotonic_violation": 0.09373532813448304,
+        "crps_logN": 0.2632666548887524,
+        "energy_score": 0.24356093692328495,
+        "raw_coverage90": 0.02726726210924081,
+        "raw_width90_logN": 0.024238397684796846,
+        "conformal_q": 0.6307477380326363,
+        "conformal_coverage90": 0.9065613191343181,
+        "conformal_width90_logN": 1.2857338737500694,
+        "strength_N1e6_mae_mpa": 14.72481373017586,
+        "activation_rate": 0.9552715654952076,
+        "curves": 2817
+      },
+      "calibration_scope": "global validation"
+    }
+  }
+}

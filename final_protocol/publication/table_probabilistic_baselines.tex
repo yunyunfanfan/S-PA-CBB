@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\caption{Probabilistic baselines under the unified three-step protocol. Coverage is reported after validation-only split-conformal calibration. Lower is better for MAE, CRPS, Energy Score and width.}
+\label{tab:probabilistic_baselines}
+\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lccccccc}
+\toprule
+Method & $k$ & MAE $\downarrow$ & CRPS $\downarrow$ & Energy $\downarrow$ & Raw cov. & Conf. cov. & Conf. width $\downarrow$ \\
+\midrule
+PA-CBB (ours) & 2 & 0.374 & 0.340 & 0.347 & 0.045 & 0.911 & 1.812 \\
+GP-RBF & 2 & 0.515 & 0.413 & 0.402 & 0.395 & 0.927 & 2.694 \\
+Bayesian Basquin & 2 & 0.343 & 0.253 & 0.241 & 0.598 & 0.904 & 1.588 \\
+ExtraTrees ensemble & 2 & 0.437 & 0.318 & 0.325 & 0.701 & 0.872 & 1.802 \\
+\addlinespace[2pt]
+PA-CBB (ours) & 3 & 0.349 & 0.321 & 0.315 & 0.044 & 0.918 & 1.749 \\
+GP-RBF & 3 & 0.425 & 0.338 & 0.297 & 0.458 & 0.913 & 2.036 \\
+Bayesian Basquin & 3 & 0.310 & 0.231 & 0.211 & 0.584 & 0.913 & 1.532 \\
+ExtraTrees ensemble & 3 & 0.434 & 0.313 & 0.317 & 0.726 & 0.879 & 1.740 \\
+\addlinespace[2pt]
+PA-CBB (ours) & 4 & 0.345 & 0.312 & 0.294 & 0.037 & 0.904 & 1.673 \\
+GP-RBF & 4 & 0.414 & 0.334 & 0.257 & 0.455 & 0.889 & 1.806 \\
+Bayesian Basquin & 4 & 0.302 & 0.229 & 0.198 & 0.527 & 0.888 & 1.388 \\
+ExtraTrees ensemble & 4 & 0.427 & 0.305 & 0.300 & 0.732 & 0.885 & 1.728 \\
+\bottomrule
+\end{tabular}
+\end{table*}

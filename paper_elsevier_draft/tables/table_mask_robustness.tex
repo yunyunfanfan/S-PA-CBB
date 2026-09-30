@@ -1,0 +1,29 @@
+\begin{table*}[t]
+\caption{Sparse-anchor location robustness across five full-model seeds. Interpolation and extrapolation are defined relative to the observed stress span; endpoint masks have no extrapolation points.}
+\label{tab:mask_robustness}
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccc}
+\toprule
+Mask pattern & $k$ & Hidden MAE $\downarrow$ & Interpolation MAE $\downarrow$ & Extrapolation MAE $\downarrow$ & Grid MAE $\downarrow$ & Energy Score $\downarrow$ \\
+\midrule
+Adjacent center & 2 & 0.361 $\pm$ 0.007 & 0.283 $\pm$ 0.009 & 0.363 $\pm$ 0.007 & 0.285 $\pm$ 0.006 & 0.341 $\pm$ 0.006 \\
+Adjacent center & 3 & 0.355 $\pm$ 0.005 & 0.258 $\pm$ 0.004 & 0.356 $\pm$ 0.006 & 0.263 $\pm$ 0.006 & 0.321 $\pm$ 0.007 \\
+Adjacent center & 4 & 0.341 $\pm$ 0.009 & 0.288 $\pm$ 0.004 & 0.345 $\pm$ 0.009 & 0.240 $\pm$ 0.007 & 0.296 $\pm$ 0.009 \\
+Endpoints & 2 & 0.345 $\pm$ 0.006 & 0.345 $\pm$ 0.006 & -- & 0.293 $\pm$ 0.008 & 0.346 $\pm$ 0.009 \\
+Endpoints & 3 & 0.297 $\pm$ 0.005 & 0.297 $\pm$ 0.005 & -- & 0.241 $\pm$ 0.008 & 0.293 $\pm$ 0.009 \\
+Endpoints & 4 & 0.270 $\pm$ 0.004 & 0.270 $\pm$ 0.004 & -- & 0.217 $\pm$ 0.006 & 0.268 $\pm$ 0.007 \\
+High-stress end & 2 & 0.387 $\pm$ 0.015 & 0.212 $\pm$ 0.004 & 0.389 $\pm$ 0.015 & 0.296 $\pm$ 0.011 & 0.357 $\pm$ 0.013 \\
+High-stress end & 3 & 0.372 $\pm$ 0.014 & 0.125 $\pm$ 0.005 & 0.374 $\pm$ 0.014 & 0.261 $\pm$ 0.008 & 0.322 $\pm$ 0.009 \\
+High-stress end & 4 & 0.379 $\pm$ 0.011 & 0.221 $\pm$ 0.013 & 0.383 $\pm$ 0.011 & 0.243 $\pm$ 0.007 & 0.303 $\pm$ 0.008 \\
+Low-stress end & 2 & 0.387 $\pm$ 0.003 & 0.287 $\pm$ 0.005 & 0.387 $\pm$ 0.003 & 0.324 $\pm$ 0.005 & 0.373 $\pm$ 0.005 \\
+Low-stress end & 3 & 0.368 $\pm$ 0.005 & 0.170 $\pm$ 0.015 & 0.369 $\pm$ 0.005 & 0.296 $\pm$ 0.005 & 0.346 $\pm$ 0.005 \\
+Low-stress end & 4 & 0.348 $\pm$ 0.006 & 0.210 $\pm$ 0.015 & 0.350 $\pm$ 0.007 & 0.269 $\pm$ 0.007 & 0.319 $\pm$ 0.009 \\
+Random & 2 & 0.348 $\pm$ 0.003 & 0.271 $\pm$ 0.007 & 0.373 $\pm$ 0.006 & 0.287 $\pm$ 0.007 & 0.341 $\pm$ 0.008 \\
+Random & 3 & 0.315 $\pm$ 0.005 & 0.283 $\pm$ 0.003 & 0.344 $\pm$ 0.010 & 0.246 $\pm$ 0.007 & 0.299 $\pm$ 0.009 \\
+Random & 4 & 0.310 $\pm$ 0.003 & 0.280 $\pm$ 0.003 & 0.363 $\pm$ 0.007 & 0.230 $\pm$ 0.005 & 0.281 $\pm$ 0.006 \\
+Uniform interior & 2 & 0.343 $\pm$ 0.004 & 0.268 $\pm$ 0.002 & 0.365 $\pm$ 0.005 & 0.269 $\pm$ 0.003 & 0.326 $\pm$ 0.004 \\
+Uniform interior & 3 & 0.325 $\pm$ 0.007 & 0.282 $\pm$ 0.004 & 0.352 $\pm$ 0.012 & 0.244 $\pm$ 0.006 & 0.302 $\pm$ 0.008 \\
+Uniform interior & 4 & 0.311 $\pm$ 0.006 & 0.256 $\pm$ 0.004 & 0.338 $\pm$ 0.008 & 0.228 $\pm$ 0.007 & 0.281 $\pm$ 0.008 \\
+\bottomrule
+\end{tabular}
+\end{table*}
